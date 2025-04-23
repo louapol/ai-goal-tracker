@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
+import AuthPage from './pages/Auth'
+import Dashboard from './pages/Dashboard'
+import { useUser } from './hooks/useUser'
 
 function App() {
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">AI Goal Tracker</h1>
-    </div>
-  );
+  const user = useUser()
+
+  if (user === null) return <AuthPage />
+  return <Dashboard />
 }
 
-export default App;
+export default App
